@@ -1,5 +1,6 @@
 package com.jackson.jsonparsing;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.jackson.jsonparsing.pojo.SimpleTestCaseJsonPOJO;
 
@@ -31,4 +32,15 @@ class JsonTest {
         JsonNode node = Json.toJson(pojo);
         assertEquals(node.get("title").asText(), "Testing123");
     }
+
+    @org.junit.jupiter.api.Test
+    void stringify() throws JsonProcessingException {
+        SimpleTestCaseJsonPOJO pojo = new SimpleTestCaseJsonPOJO();
+        pojo.setTitle("Testing123");
+        JsonNode node = Json.toJson(pojo);
+        System.out.println(Json.stringify(node));
+//        assertEquals(node.get("title").asText(), "Testing123");
+    }
+
+
 }
