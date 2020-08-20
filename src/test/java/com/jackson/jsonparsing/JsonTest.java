@@ -39,6 +39,7 @@ class JsonTest {
         pojo.setTitle("Testing123");
         JsonNode node = Json.toJson(pojo);
         System.out.println(Json.stringify(node));
+        System.out.println(Json.prettyPrint(node));
 //        assertEquals(node.get("title").asText(), "Testing123");
     }
 

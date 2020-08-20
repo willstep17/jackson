@@ -1,10 +1,7 @@
 package com.jackson.jsonparsing;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.*;
 
 import java.io.IOException;
 
@@ -31,7 +28,18 @@ public class Json {
     }
 
     public static String stringify(JsonNode node) throws JsonProcessingException {
+        return generateString(node, false);
+    }
+
+    public static String prettyPrint(JsonNode node) throws JsonProcessingException {
+        return generateString(node, false);
+    }
+
+    private static String generateString(JsonNode node, boolean pretty) throws JsonProcessingException {
         ObjectWriter objectWriter = objectMapper.writer();
+        if (pretty) {
+            objectWriter = objectWriter.with(SerializationFeature.INDENT_OUTPUT);
+        }
         return objectWriter.writeValueAsString(node);
     }
 
