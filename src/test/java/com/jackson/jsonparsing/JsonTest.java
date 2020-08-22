@@ -10,7 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JsonTest {
 
-    private String simpleTestCaseJsonSource = "{ \"title\" : \"test\", \"author\" : \"will\" }";
+    private String simpleTestCaseJsonSource = "{  \n +" +
+            "\"title\" : \"test\", " +
+            "\"author\" : \"will\" " +
+            "}";
 
     @org.junit.jupiter.api.Test
     void parse() throws IOException {
