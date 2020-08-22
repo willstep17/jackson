@@ -15,6 +15,11 @@ class JsonTest {
             "\"author\" : \"will\" " +
             "}";
 
+    private String dayScenarioOne = "{
+            "date" : "2020-12-25",
+            "name" : "Christmas Day"
+            }";
+
     @org.junit.jupiter.api.Test
     void parse() throws IOException {
         JsonNode node = Json.parse(simpleTestCaseJsonSource);
